@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://soap" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://soap" xmlns:intf="http://soap" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://soap" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getReviewsByDate">
+    <complexType>
+     <sequence>
+      <element name="date" type="xsd:dateTime"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getReviewsByDateResponse">
+    <complexType>
+     <sequence>
+      <element name="getReviewsByDateReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="getReviewsByGenre">
+    <complexType>
+     <sequence>
+      <element name="genre" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getReviewsByGenreResponse">
+    <complexType>
+     <sequence>
+      <element name="getReviewsByGenreReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getReviewsByName">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getReviewsByNameResponse">
+    <complexType>
+     <sequence>
+      <element name="getReviewsByNameReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getReviews">
+    <complexType/>
+   </element>
+   <element name="getReviewsResponse">
+    <complexType>
+     <sequence>
+      <element name="getReviewsReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getReviewsResponse">
+
+      <wsdl:part element="impl:getReviewsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getReviewsByNameRequest">
+
+      <wsdl:part element="impl:getReviewsByName" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getReviewsByNameResponse">
+
+      <wsdl:part element="impl:getReviewsByNameResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getReviewsByDateRequest">
+
+      <wsdl:part element="impl:getReviewsByDate" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getReviewsByDateResponse">
+
+      <wsdl:part element="impl:getReviewsByDateResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getReviewsByGenreRequest">
+
+      <wsdl:part element="impl:getReviewsByGenre" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getReviewsRequest">
+
+      <wsdl:part element="impl:getReviews" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getReviewsByGenreResponse">
+
+      <wsdl:part element="impl:getReviewsByGenreResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PlayBill">
+
+      <wsdl:operation name="getReviewsByDate">
+
+         <wsdl:input message="impl:getReviewsByDateRequest" name="getReviewsByDateRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getReviewsByDateResponse" name="getReviewsByDateResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getReviewsByGenre">
+
+         <wsdl:input message="impl:getReviewsByGenreRequest" name="getReviewsByGenreRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getReviewsByGenreResponse" name="getReviewsByGenreResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getReviewsByName">
+
+         <wsdl:input message="impl:getReviewsByNameRequest" name="getReviewsByNameRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getReviewsByNameResponse" name="getReviewsByNameResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getReviews">
+
+         <wsdl:input message="impl:getReviewsRequest" name="getReviewsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getReviewsResponse" name="getReviewsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="PlayBillSoapBinding" type="impl:PlayBill">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getReviewsByDate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getReviewsByDateRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getReviewsByDateResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getReviewsByGenre">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getReviewsByGenreRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getReviewsByGenreResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getReviewsByName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getReviewsByNameRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getReviewsByNameResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getReviews">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getReviewsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getReviewsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PlayBillService">
+
+      <wsdl:port binding="impl:PlayBillSoapBinding" name="PlayBill">
+
+         <wsdlsoap:address location="http://localhost:8080/PA3/services/PlayBill"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

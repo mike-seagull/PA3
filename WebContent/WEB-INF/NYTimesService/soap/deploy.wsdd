@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from NYTimesService WSDL service -->
+
+  <service name="NYTimes" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://soap"/>
+      <parameter name="wsdlServiceElement" value="NYTimesService"/>
+      <parameter name="schemaQualified" value="http://soap"/>
+      <parameter name="wsdlServicePort" value="NYTimes"/>
+      <parameter name="className" value="soap.NYTimes"/>
+      <parameter name="wsdlPortType" value="NYTimes"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://soap" xmlns:retNS="http://soap" xmlns:rtns="http://soap" xmlns:tns="http://soap" name="getReviewsByDate" qname="operNS:getReviewsByDate" returnQName="retNS:getReviewsByDateReturn" returnType="rtns:ArrayOf_xsd_anyType" returnItemQName="tns:item" soapAction="">
+        <parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" xmlns:pns="http://soap" qname="pns:date" type="tns:dateTime"/>
+      </operation>
+      <operation xmlns:operNS="http://soap" xmlns:retNS="http://soap" xmlns:rtns="http://soap" xmlns:tns="http://soap" name="getReviewsByGenre" qname="operNS:getReviewsByGenre" returnQName="retNS:getReviewsByGenreReturn" returnType="rtns:ArrayOf_xsd_anyType" returnItemQName="tns:item" soapAction="">
+        <parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" xmlns:pns="http://soap" qname="pns:genre" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://soap" xmlns:retNS="http://soap" xmlns:rtns="http://soap" xmlns:tns="http://soap" name="getReviewsByName" qname="operNS:getReviewsByName" returnQName="retNS:getReviewsByNameReturn" returnType="rtns:ArrayOf_xsd_anyType" returnItemQName="tns:item" soapAction="">
+        <parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" xmlns:pns="http://soap" qname="pns:name" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://soap" xmlns:retNS="http://soap" xmlns:rtns="http://soap" xmlns:tns="http://soap" name="getReviews" qname="operNS:getReviews" returnQName="retNS:getReviewsReturn" returnType="rtns:ArrayOf_xsd_anyType" returnItemQName="tns:item" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="getReviewsByDate getReviews getReviewsByName getReviewsByGenre"/>
+
+      <typeMapping xmlns:ns="http://soap" qname="ns:&gt;getReviews" type="java:soap.GetReviews" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://soap" qname="ns:&gt;getReviewsByGenre" type="java:soap.GetReviewsByGenre" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://soap" qname="ns:&gt;getReviewsByName" type="java:soap.GetReviewsByName" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://soap" qname="ns:&gt;getReviewsByDateResponse" type="java:soap.GetReviewsByDateResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <arrayMapping xmlns:ns="http://soap" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema" qname="ns:ArrayOf_xsd_anyType" type="java:java.lang.Object[]" innerType="cmp-ns:anyType" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://soap" qname="ns:&gt;getReviewsResponse" type="java:soap.GetReviewsResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://soap" qname="ns:&gt;getReviewsByGenreResponse" type="java:soap.GetReviewsByGenreResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://soap" qname="ns:&gt;getReviewsByDate" type="java:soap.GetReviewsByDate" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://soap" qname="ns:&gt;getReviewsByNameResponse" type="java:soap.GetReviewsByNameResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>
